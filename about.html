@@ -37,11 +37,11 @@
                 <h2>All About Me</h2>
                 <p>Woof! I'm Pebbles, a dog from Indiana! You can learn about me here!</p>
                 <ul class="facts-list">
-                    <li><strong>Breed:</strong> Mixed Breed</li>
+                    <li><strong>Breed:</strong> Goldendoodle</li>
                     <li><strong>Age:</strong> <span id="dog-age">Calculating...</span></li>
-                    <li><strong>Color:</strong> Brown and White</li>
-                    <li><strong>Weight:</strong> 45lbs</li>
-                    <li><strong>Birthday:</strong> July 22, 2016</li>
+                    <li><strong>Color:</strong> Black</li>
+                    <li><strong>Weight:</strong> 30lbs</li>
+                    <li><strong>Birthday:</strong> <span id="dog-bd">July 22, 2016</span></li>
                 </ul>
             </div>
         </section>
@@ -114,7 +114,7 @@
             // Calculate age in years
             let years = today.getFullYear() - birthday.getFullYear();
             const monthDiff = today.getMonth() - birthday.getMonth();
-            
+            let bd = "July 16, 2016"
             // Adjust if birthday hasn't occurred yet this year
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
                 years--;
@@ -139,10 +139,12 @@
             // Add birthday cake if it's her birthday
             if (isBirthday) {
                 ageText += ' 🎂';
+                bd += ' 🎂';
             }
             
             // Update the page with the calculated age
             document.getElementById('dog-age').textContent = ageText;
+            document.getElementById('dog-bd').textContent = bd;
         });
     </script>
 </body>
