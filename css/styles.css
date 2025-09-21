@@ -1,17 +1,17 @@
-/* ===== Pet Website Stylesheet ===== */
+/* ===== Dog Website Stylesheet ===== */
 /* Pawsitively the best styles on the internet! */
 
 /* ----- 1. Variables & Global Reset ----- */
 :root {
-    /* Color Palette */
-    --color-primary: #f9a8d4; /* Playful pink */
-    --color-secondary: #93c5fd; /* Calming blue */
-    --color-accent: #fde68a; /* Sunny yellow */
+    /* Color Palette - Updated for dog theme */
+    --color-primary: #8a2be2; /* Playful purple */
+    --color-secondary: #4ecdc4; /* Calming teal */
+    --color-accent: #ffb347; /* Warm orange */
     --color-dark: #4b5563; /* Gray for text */
     --color-light: #f3f4f6; /* Light gray for backgrounds */
     --color-white: #fff;
 
-    /* Fonts */
+    /* Fonts - Maintained as requested */
     --font-heading: 'Comic Neue', cursive, sans-serif;
     --font-body: 'Nunito', sans-serif;
 }
@@ -52,7 +52,7 @@ body {
     color: var(--color-dark);
     background-color: var(--color-light);
     line-height: 1.6;
-    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 C15 5, 20 10, 25 5 C30 10, 35 5, 40 10 C45 5, 50 10, 55 5 C60 10, 65 5, 70 10 C75 5, 80 10, 85 5 C90 10, 95 5, 100 10 L100 100 L10 100 Z" fill="%23f9a8d4" opacity="0.1"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,30 Q40,20 50,30 T70,30 Q80,40 70,50 T70,70 Q60,80 50,70 T30,70 Q20,60 30,50 T30,30 Z" fill="%238a2be2" opacity="0.1"/></svg>');
     background-size: 300px;
 }
 
@@ -78,14 +78,14 @@ h2 {
 
 /* Description List Styling */
 dl {
-    font-family: var(--font-body); /* Uses the same font as the rest of the site */
+    font-family: var(--font-body);
     margin: 1.5rem 0;
     line-height: 1.6;
 }
 
 dt {
     font-weight: bold;
-    color: var(--color-primary); /* Uses the pink color for terms */
+    color: var(--color-primary);
     margin-top: 1rem;
     font-size: 1.1em;
 }
@@ -94,7 +94,7 @@ dd {
     font-weight: normal;
     margin-left: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--color-dark); /* Uses the dark gray color for descriptions */
+    color: var(--color-dark);
 }
 
 a {
@@ -110,7 +110,7 @@ a:hover {
 
 /* ----- 3. Layout & Components ----- */
 
-/* Header & Navigation */
+/* Header & Navigation - Style maintained as requested */
 .site-header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     padding: 2rem;
@@ -125,7 +125,7 @@ a:hover {
     font-size: 2.5rem;
 }
 
-.pet-nav ul {
+.cat-nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
@@ -133,7 +133,7 @@ a:hover {
     margin-top: 1rem;
 }
 
-.pet-nav a {
+.cat-nav a {
     color: var(--color-white);
     font-weight: bold;
     padding: 0.5rem 1rem;
@@ -141,7 +141,7 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.pet-nav a:hover {
+.cat-nav a:hover {
     background-color: var(--color-white);
     color: var(--color-primary);
     text-decoration: none;
@@ -174,7 +174,7 @@ a:hover {
     border: 5px solid var(--color-white);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    margin: 0 auto; /* This ensures horizontal centering */
+    margin: 0 auto;
 }
 
 .hero-img:hover {
@@ -218,7 +218,7 @@ a:hover {
     transform: scale(1.1);
 }
 
-/* Facts List */
+/* Facts List - Updated for dogs */
 .facts-list {
     background-color: var(--color-white);
     padding: 2rem;
@@ -234,7 +234,7 @@ a:hover {
 }
 
 .facts-list li::before {
-    content: "🐾";
+    content: "🐕"; /* Changed from paw to dog */
     position: absolute;
     left: 0;
 }
@@ -258,8 +258,8 @@ img {
     display: block;
 }
 
-/* Common style for all pet images */
-.pet-image {
+/* Common style for all dog images */
+.dog-image {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -331,7 +331,7 @@ img {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, transparent 40%, rgba(249, 168, 212, 0.3) 100%);
+    background: radial-gradient(circle at center, transparent 40%, rgba(138, 43, 226, 0.3) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;
@@ -355,11 +355,11 @@ img {
     filter: saturate(135%) contrast(110%);
 }
 
-.pet-image {
+.dog-image {
     transition: filter 0.4s ease;
 }
 
-.pet-image:hover {
+.dog-image:hover {
     filter: saturate(120%) brightness(102%);
 }
 
@@ -374,12 +374,13 @@ img {
     border-radius: 25% !important;
 }
 
-.image-pet-ears {
+.image-bone {
+    /* Bone shape for dog theme */
     clip-path: polygon(
-        50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%
+        25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%
     );
     /* Fallback for older browsers */
-    border-radius: 30% 30% 50% 50% / 30% 30% 70% 70%;
+    border-radius: 40% 40% 40% 40% / 60% 60% 40% 40%;
 }
 
 /* ----- 5. Utilities ----- */
@@ -396,69 +397,18 @@ img {
     font-size: 1.2rem;
 }
 
-/* ----- 6. Pet Cards ----- */
-.pet-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.pet-card {
-    background-color: var(--color-white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.pet-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-}
-
-.pet-card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.pet-card-content {
-    padding: 1.5rem;
-}
-
-.pet-card h3 {
-    color: var(--color-secondary);
-    margin-bottom: 0.5rem;
-}
-
-.pet-card p {
-    margin-bottom: 1rem;
-    color: var(--color-dark);
-}
-
-.pet-rating {
-    display: flex;
-    margin-top: 1rem;
-}
-
-/* ----- 7. Responsive Design ----- */
+/* ----- 6. Responsive Design ----- */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
     }
 
-    .pet-nav ul {
+    .cat-nav ul {
         flex-direction: column;
         gap: 0.5rem;
     }
 
     .gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    .pet-cards {
         grid-template-columns: 1fr;
     }
     
