@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Pebbles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Pebbles" />
+    <link rel="manifest" href="/assets/icons/site.webmanifest" />
+    
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="site-title">Pebbles the Dog</h1>
+        <nav class="cat-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <a href="images/pebbles_hero.jpg" title="See the image!"><img src="images/pebbles_hero.jpg" alt="Portrait of Pebbles" class="abt-img image-hover-spotlight"></a>
+            <p class="caption">Yeah, I'm kind of amazing.</p>
+            <div class="bio-text">
+                <h2>All About Me</h2>
+                <p>Woof! I'm Pebbles, a dog from Indiana! You can learn about me here!</p>
+                <ul class="facts-list">
+                    <li><strong>Breed:</strong> Mixed Breed</li>
+                    <li><strong>Age:</strong> <span id="dog-age">Calculating...</span></li>
+                    <li><strong>Color:</strong> Brown and White</li>
+                    <li><strong>Weight:</strong> 45lbs</li>
+                    <li><strong>Birthday:</strong> July 22, 2016</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="personality">
+            <h2>My Personality</h2>
+            <p>These things are what make me amazing!</p>
+            <div class="traits">
+                <div class="trait">
+                  <h3>Playfulness</h3>
+                  <div class="rating">
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw">🐾</span>
+                  </div>
+                </div>
+                <!-- Add more traits as needed -->
+                <div class="trait">
+                  <h3>Loyalty</h3>
+                  <div class="rating">
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                  </div>
+                </div>
+                <div class="trait">
+                  <h3>Energy Level</h3>
+                  <div class="rating">
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw filled">🐾</span>
+                      <span class="paw">🐾</span>
+                      <span class="paw">🐾</span>
+                      <p>I love walks and playtime, but I also enjoy my naps!</p>
+                  </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="history">
+            <h2>How I Found My Forever Family</h2>
+            <p>My journey home started when my Mom went to look for another dog. I jumped up into her lap. I knew she was special!</p>
+            <p>At that time, my name was Roxy. My Mom knew from that point that we were meant for each other.</p>
+            <p>I got home and immediately got to Bella, and knocked her down onto the floor!</p>
+            <p>And that's how I came to be with my forever family.</p>
+    
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Made with ❤️ by <a href="https://youtube.com/@SerialDesignationN-BL" title="See me on YouTube!">Bella Lawrence.</a> Built on <a href="https://github.com/Bella288/pebbles" title="GitHub repository for this site"><i class="fa-brands fa-github"></i> GitHub.</a></p>
+        <a href="https://youtube.com/@SerialDesignationN-BL" title="Bella Lawrence - YouTube"><p><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Catch me on YouTube!</p></a>
+        <a href="https://github.com/Bella288" title="Bella Lawrence - GitHub"><p><i class="fa-brands fa-github"></i> Check out my other cool things!</p></a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pebbles' birthday (July 22, 2016)
+            const birthday = new Date(2016, 6, 22); // Note: months are 0-indexed in JS (0=Jan, 11=Dec)
+            const today = new Date();
+            
+            // Check if today is her birthday
+            const isBirthday = today.getMonth() === birthday.getMonth() && 
+                               today.getDate() === birthday.getDate();
+            
+            // Calculate age in years
+            let years = today.getFullYear() - birthday.getFullYear();
+            const monthDiff = today.getMonth() - birthday.getMonth();
+            
+            // Adjust if birthday hasn't occurred yet this year
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
+                years--;
+            }
+            
+            // Format age for display
+            let ageText;
+            if (years === 0) {
+                // Calculate months if less than a year old
+                let months = today.getMonth() - birthday.getMonth();
+                if (today.getDate() < birthday.getDate()) {
+                    months--;
+                }
+                if (months < 0) {
+                    months += 12;
+                }
+                ageText = `${months} month${months !== 1 ? 's' : ''} old`;
+            } else {
+                ageText = `${years} year${years !== 1 ? 's' : ''} old`;
+            }
+            
+            // Add birthday cake if it's her birthday
+            if (isBirthday) {
+                ageText += ' 🎂';
+            }
+            
+            // Update the page with the calculated age
+            document.getElementById('dog-age').textContent = ageText;
+        });
+    </script>
+</body>
+</html>
