@@ -15,7 +15,149 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Pebbles" />
     <link rel="manifest" href="/assets/icons/site.webmanifest" />
-    
+    <style>
+        /* Share button styles */
+        .share-btn {
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #6a1cb0;
+        }
+        
+        .share-btn-small {
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .modal-title {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .share-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .share-option {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .share-option:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .share-option i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .copy-link {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .copy-link input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .copy-link button {
+            padding: 8px 12px;
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .copy-link button:hover {
+            background-color: #6a1cb0;
+        }
+        
+        .copy-success {
+            color: green;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* Navbar share button positioning */
+        .nav-share {
+            margin-left: auto;
+        }
+        
+        /* Footer share button positioning */
+        .footer-share {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -25,6 +167,11 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="about.html" class="active">About</a></li>
+                <li class="nav-share">
+                    <button class="share-btn" id="nav-share-btn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -99,7 +246,53 @@
         <p>Made with ❤️ by <a href="https://youtube.com/@SerialDesignationN-BL" title="See me on YouTube!">Bella Lawrence.</a> Built on <a href="https://github.com/Bella288/pebbles" title="GitHub repository for this site"><i class="fa-brands fa-github"></i> GitHub.</a></p>
         <a href="https://youtube.com/@SerialDesignationN-BL" title="Bella Lawrence - YouTube"><p><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Catch me on YouTube!</p></a>
         <a href="https://github.com/Bella288" title="Bella Lawrence - GitHub"><p><i class="fa-brands fa-github"></i> Check out my other cool things!</p></a>
+        <div class="footer-share">
+            <button class="share-btn share-btn-small" id="footer-share-btn">
+                <i class="fas fa-share-alt"></i> Share this page
+            </button>
+        </div>
     </footer>
+
+    <!-- Share Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Share</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="share-options">
+                <div class="share-option" data-platform="facebook">
+                    <i class="fab fa-facebook" style="color: #1877f2;"></i>
+                    <span>Facebook</span>
+                </div>
+                <div class="share-option" data-platform="twitter">
+                    <i class="fab fa-twitter" style="color: #1da1f2;"></i>
+                    <span>Twitter</span>
+                </div>
+                <div class="share-option" data-platform="reddit">
+                    <i class="fab fa-reddit" style="color: #ff4500;"></i>
+                    <span>Reddit</span>
+                </div>
+                <div class="share-option" data-platform="linkedin">
+                    <i class="fab fa-linkedin" style="color: #0a66c2;"></i>
+                    <span>LinkedIn</span>
+                </div>
+                <div class="share-option" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+                    <span>WhatsApp</span>
+                </div>
+                <div class="share-option" data-platform="email">
+                    <i class="fas fa-envelope" style="color: #ea4335;"></i>
+                    <span>Email</span>
+                </div>
+            </div>
+            <div class="copy-link">
+                <input type="text" id="share-url" readonly>
+                <button id="copy-btn">Copy</button>
+            </div>
+            <div class="copy-success" id="copy-success">Link copied to clipboard!</div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -145,6 +338,96 @@
             // Update the page with the calculated age
             document.getElementById('dog-age').textContent = ageText;
             document.getElementById('dog-bd').textContent = bd;
+
+            // Share functionality
+            const navShareBtn = document.getElementById('nav-share-btn');
+            const footerShareBtn = document.getElementById('footer-share-btn');
+            const shareModal = document.getElementById('share-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const shareUrlInput = document.getElementById('share-url');
+            const copyBtn = document.getElementById('copy-btn');
+            const copySuccess = document.getElementById('copy-success');
+            const shareOptions = document.querySelectorAll('.share-option');
+            
+            let currentShareUrl = window.location.href;
+            
+            // Function to open share modal
+            function openShareModal(url) {
+                currentShareUrl = url;
+                shareUrlInput.value = url;
+                shareModal.style.display = 'flex';
+                copySuccess.style.display = 'none';
+            }
+            
+            // Function to close share modal
+            function closeShareModal() {
+                shareModal.style.display = 'none';
+            }
+            
+            // Navbar share button
+            navShareBtn.addEventListener('click', function() {
+                openShareModal(window.location.href);
+            });
+            
+            // Footer share button
+            footerShareBtn.addEventListener('click', function() {
+                openShareModal(window.location.href);
+            });
+            
+            // Close modal when clicking X or outside modal
+            closeModal.addEventListener('click', closeShareModal);
+            window.addEventListener('click', function(event) {
+                if (event.target === shareModal) {
+                    closeShareModal();
+                }
+            });
+            
+            // Copy link functionality
+            copyBtn.addEventListener('click', function() {
+                shareUrlInput.select();
+                document.execCommand('copy');
+                copySuccess.style.display = 'block';
+                setTimeout(() => {
+                    copySuccess.style.display = 'none';
+                }, 2000);
+            });
+            
+            // Share to platforms
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    let shareUrl = '';
+                    
+                    switch(platform) {
+                        case 'facebook':
+                            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentShareUrl)}`;
+                            break;
+                        case 'twitter':
+                            shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentShareUrl)}&text=Check%20out%20Pebbles%20the%20Dog!`;
+                            break;
+                        case 'reddit':
+                            shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(currentShareUrl)}&title=Pebbles%20the%20Dog`;
+                            break;
+                        case 'linkedin':
+                            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentShareUrl)}`;
+                            break;
+                        case 'whatsapp':
+                            shareUrl = `https://api.whatsapp.com/send?text=Check%20out%20Pebbles%20the%20Dog!%20${encodeURIComponent(currentShareUrl)}`;
+                            break;
+                        case 'email':
+                            shareUrl = `mailto:?subject=Check%20out%20Pebbles%20the%20Dog!&body=I%20thought%20you%20might%20like%20this:%20${encodeURIComponent(currentShareUrl)}`;
+                            break;
+                    }
+                    
+                    if (platform === 'email') {
+                        window.location.href = shareUrl;
+                    } else {
+                        window.open(shareUrl, '_blank', 'width=700,height=500');
+                    }
+                    
+                    closeShareModal();
+                });
+            });
         });
     </script>
 </body>
