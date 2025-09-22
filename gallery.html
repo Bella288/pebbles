@@ -148,31 +148,36 @@
             display: none;
         }
         
-        /* Image share button positioning */
+        /* Image share button positioning - FIXED */
         .gallery-item {
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .image-share-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: rgba(138, 43, 226, 0.8);
+            background-color: rgba(138, 43, 226, 0.9);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s;
+            opacity: 1;
+            transition: all 0.3s;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
-        .gallery-item:hover .image-share-btn {
-            opacity: 1;
+        .image-share-btn:hover {
+            background-color: rgba(138, 43, 226, 1);
+            transform: scale(1.1);
         }
         
         /* Navbar share button positioning */
@@ -183,6 +188,20 @@
         /* Footer share button positioning */
         .footer-share {
             margin-top: 10px;
+        }
+        
+        /* Ensure gallery items have proper spacing */
+        .gallery-item .caption {
+            padding: 10px;
+            background-color: white;
+            margin: 0;
+        }
+        
+        /* Make sure the image container doesn't overflow */
+        .gallery-item a {
+            display: block;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
         }
     </style>
 </head>
@@ -209,7 +228,7 @@
         
         <div class="gallery" id="photos">
             <div class="gallery-item" id="photo.1">
-                <button class="image-share-btn" data-image-id="photo.1">
+                <button class="image-share-btn" data-image-id="photo.1" title="Share this photo">
                     <i class="fas fa-share-alt"></i>
                 </button>
                 <a href="images/pebbles_hero.jpg" title="Click to see the full image!">
@@ -218,9 +237,10 @@
                 <p class="caption">Say hello to Pebbles!</p>
             </div>
             
+            <!-- Additional gallery items can be added here following the same pattern -->
             <!-- COPY SECTION FOR NEW IMAGES
             <div class="gallery-item" id="photo.x">
-                <button class="image-share-btn" data-image-id="photo.x">
+                <button class="image-share-btn" data-image-id="photo.x" title="Share this photo">
                     <i class="fas fa-share-alt"></i>
                 </button>
                 <a href="images/FILENAME.jpg" title="Click to see the full image!">
