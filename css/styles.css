@@ -21,6 +21,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+div[id^="trait."]:target {
+    border: 3px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3 ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
 
 .paw {
     font-size: 1.5rem;
