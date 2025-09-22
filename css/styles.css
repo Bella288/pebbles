@@ -22,12 +22,111 @@
     box-sizing: border-box;
 }
 div[id^="trait."]:target {
-    border: 3px solid var(--color-secondary);
+    border: 5px solid var(--color-secondary);
     padding: 15px;
     background-color: rgb(138,43,226,0.1);
     border-radius: 15px;
     transform: scale(1.02);
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id="photos"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+section[id="intro"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+section[id="highlights"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id="favorites"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id="routine"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id="funfact"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id^="photo."]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id^="video."]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+section[id="ratings"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+div[id="bio"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+section[id="history"]:target {
+    border: 5px solid var(--color-secondary);
+    padding: 15px;
+    background-color: rgb(138,43,226,0.1);
+    border-radius: 15px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
